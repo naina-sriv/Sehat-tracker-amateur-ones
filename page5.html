@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        select, textarea, input[type="submit"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mood Tracker</h1>
+    </header>
+    <div class="container">
+        <h2>How are you feeling today?</h2>
+        <form>
+            <label for="mood">Select your mood:</label>
+            <select id="mood" name="mood">
+                <option value="happy">Happy 😃</option>
+                <option value="content">Content 😊</option>
+                <option value="neutral">Neutral 😐</option>
+                <option value="sad">Sad 😔</option>
+                <option value="depressed">Depressed 😢</option>
+            </select>
+
+            <label for="reason">Reason (optional):</label>
+            <textarea id="reason" name="reason" rows="4" placeholder="SOMETIMES EMOTION CANNOT BE EXPRESSED WITH EMOJI,LETS TALK...."></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

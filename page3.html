@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Rate Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: pink;/* to change colour */
+            border-radius: 50px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding  : 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: px;
+            cursor: pointer;
+             
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Rate Tracker</h1>
+        <form id="trackerForm">
+            <label for="heartRate">Heart Rate (bpm):</label>
+            <input type="number" id="heartRate" name="heartRate" min="0" required>
+            
+            <input type="submit" value="Submit">
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('trackerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get form value
+            var heartRate = parseInt(document.getElementById('heartRate').value);
+            
+            // Check if heart rate is within normal range
+            var resultMessage = "";
+            if (heartRate >= 60 && heartRate <= 100) {
+                resultMessage = "Your heart rate is within the normal range.";
+            } else {
+                resultMessage = "Your heart rate is not within the normal range. Consult your healthcare provider.";
+            }
+            
+            // Display result message
+            document.getElementById('result').innerHTML = resultMessage;
+        });
+    </script>
+</body>
+</html>

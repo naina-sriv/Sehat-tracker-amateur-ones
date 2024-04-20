@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:pink;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Tracker</h1>
+        <form id="trackerForm">
+            <label for="bloodSugar">Blood Sugar Level (mg/dL):</label>
+            <input type="number" id="bloodSugar" name="bloodSugar" min="0" required>
+            
+            <label for="meal">Meal Type:</label>
+            <select id="meal" name="meal" required>
+                <option value="">Select Meal Type</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+            </select>
+            
+            <input type="submit" value="Submit">
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('trackerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get form values
+            var bloodSugar = parseFloat(document.getElementById('bloodSugar').value);
+            var meal = document.getElementById('meal').value;
+            
+            // Check if blood sugar value is within a normal range based on meal type
+            var normalRange = getNormalRange(meal);
+            var resultMessage = "";
+            if (bloodSugar >= normalRange[0] && bloodSugar <= normalRange[1]) {
+                resultMessage = "Your blood sugar level is within the normal range for " + meal + ".";
+            } else {
+                resultMessage = "Your blood sugar level is not within the normal range for " + meal + ".";
+            }
+            
+            // Display result message
+            document.getElementById('result').innerHTML = resultMessage;
+        });
+
+        // Function to get normal blood sugar range based on meal type
+        function getNormalRange(meal) {
+            switch (meal) {
+                case "breakfast":
+                    return [70, 130]; // Normal range for breakfast
+                case "lunch":
+                    return [70, 140]; // Normal range for lunch
+                case "dinner":
+                    return [70, 120]; // Normal range for dinner
+                case "snack":
+                    return [70, 140]; // Normal range for snack
+                default:
+                    return [0, 0]; // Default range
+            }
+        }
+    </script>
+</body>
+</html>

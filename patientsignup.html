@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Sign Up</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], select, textarea, input[type="submit"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>SIGN UP AS A PATIENT </h2>
+        <form>
+            <label for="name">FULL NAME:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">EMAIL:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">PASSWORD:</labeASSWORDl>
+            <input type="password" id="password" name="password" required>
+             <br />
+            <label for="GENDER">GENDER:</label>
+            <select id="GENDER" name="GENDER" required>
+                <option value="">Select GENDER</option>
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+                <option value="PREFER NOT TO SAY">PREFER NOT TO SAY</option>
+                <!-- Add more options as needed -->
+            </select>
+           <br>
+            <label for="AGE">AGE:</label>
+            <input type="text" id="AGE" name="AGE" required>
+           <br>
+            <label for="WEIGHT">WEIGHT:</label>
+            <input type="text" id="WEIGHT" name="WEIGHT" required>
+              <br>
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+</body>
+</html>

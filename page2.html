@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:pink;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blood Pressure Tracker</h1>
+        <form id="trackerForm">
+            <label for="systolic">Systolic Pressure (mmHg):</label>
+            <input type="number" id="systolic" name="systolic" min="0" required>
+            
+            <label for="diastolic">Diastolic Pressure (mmHg):</label>
+            <input type="number" id="diastolic" name="diastolic" min="0" required>
+            
+            <input type="submit" value="Submit">
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('trackerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get form values
+            var systolic = parseInt(document.getElementById('systolic').value);
+            var diastolic = parseInt(document.getElementById('diastolic').value);
+            
+            // Check if blood pressure values are within normal range
+            var resultMessage = "";
+            if (systolic >= 90 && systolic <= 120 && diastolic >= 60 && diastolic <= 80) {
+                resultMessage = "Your blood pressure is within the normal range.";
+            } else {
+                resultMessage = "Your blood pressure is not within the normal range. Consult your healthcare provider.";
+            }
+            
+            // Display result message
+            document.getElementById('result').innerHTML = resultMessage;
+        });
+    </script>
+</body>
+</html>
